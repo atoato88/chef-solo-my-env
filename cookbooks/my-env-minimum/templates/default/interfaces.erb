@@ -1,0 +1,26 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+#auto eth0
+#iface eth0 inet dhcp
+auto eth0
+iface eth0 inet static
+address <%= @eth0 %>
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 192.168.1.1
+
+# This is an autoconfigured IPv6 interface
+#iface eth0 inet6 auto
+
+auto eth1
+iface eth1 inet static
+address <%= @eth1 %>
+netmask 255.255.0.0
+#gateway 172.16.0.1
+#dns-nameservers 192.168.1.1
+

@@ -1,0 +1,13 @@
+{
+  "id": "my_env",
+  "hostname": "sample01",
+  "git":{
+    "editor": "vim",
+    "name": "myname",
+    "email": "hoge@example.com"
+  },
+  "ipaddress": {
+    "eth0": "192.168.1.159",
+    "eth1": "172.16.0.159"
+  }
+}

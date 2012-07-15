@@ -1,0 +1,53 @@
+#
+# Cookbook Name:: monitor-commands
+# Recipe:: default
+#
+# Copyright 2012, YOUR_COMPANY_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
+
+Chef::Log.info("change host settings")
+my_env = data_bag_item('param', 'my_env')
+
+Chef::Log.info("disable ipv6")
+bash "disable ipv6" do
+  user "root"
+  code <<-EOH
+    echo 'net.ipv6.conf.all.disable_ipv6 = 1' >> /etc/sysctl.conf
+  EOH
+end
+
+Chef::Log.info("change network interfaces")
+template "/etc/network/interfaces" do
+  source "interfaces.erb"
+  mode 0644
+  owner "root"
+  group "root"
+  variables({
+    :eth0 => my_env["ipaddress"]["eth0"],
+    :eth1 => my_env["ipaddress"]["eth1"]
+  })
+end
+
+Chef::Log.info("change hostname")
+template "/etc/hostname" do
+  source "hosts.erb"
+  mode 0644
+  owner "root"
+  group "root"
+  variables({
+    :hostname => my_env["hostname"]
+  })
+end
+
+Chef::Log.info("change hosts")
+template "/etc/hosts" do
+  source "hosts.erb"
+  mode 0644
+  owner "root"
+  group "root"
+  variables({
+    :hostname => my_env["hostname"]
+  })
+end
