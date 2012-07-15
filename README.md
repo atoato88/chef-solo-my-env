@@ -1,6 +1,6 @@
 # Summary
-Build my environment in linux.
-So far, main target distoributin is Ubuntu.
+Build my environment in linux.  
+So far, main target distoributin is Ubuntu.  
 
 # Usage
 1. clone this repository
