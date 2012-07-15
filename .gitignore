@@ -5,3 +5,4 @@ coverage
 Gemfile.lock
 pkg/*
 *.swp
+chef-stacktrace.out
