@@ -19,4 +19,4 @@ So far, main target distribution is Ubuntu.
    <pre>
    sudo chef-solo -c /var/chef-solo/solo.rb -j /var/chef-solo/node.json
    </pre>
-
+1. reboot machine
